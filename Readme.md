@@ -2,7 +2,9 @@
 
 [gRPC](https://grpc.io) is part of the repository (no need to install) under the `tools` directory.
 
-In order to compile `.proto` file, execute one of the scripts under the `scripts/proto` directory,depending on your OS, e.g. `./scripts/proto/mac-compile.sh`.
+By default the `GrpcDemo.Core` project already includes  the generated C# code, thus there's no need to compile [protobuf](https://developers.google.com/protocol-buffers) files. 
+
+To compile `.proto` file, execute one of the scripts under the `scripts/proto` directory depending on your OS, e.g. `./scripts/proto/mac-compile.sh`.
 
 In order to start the application, run the server and the client separately:
 
