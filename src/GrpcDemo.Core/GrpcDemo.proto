@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package GrpcDemo.Core;
+
+service DemoService {
+    rpc Send (Message) returns (Empty) {}
+    rpc SendWithReply (Message) returns (Message) {}
+    rpc SendStream (stream Message) returns (Empty) {}
+    rpc SendStreamWithReplyStream (stream Message) returns (stream Message) {}
+    rpc Push (Event) returns (Empty) {}
+    rpc Pull (Empty) returns (SingleEvent) {}
+    rpc PushManyStream (stream Event) returns (Empty) {}
+    rpc PullMany (Empty) returns (ManyEvents) {}
+    rpc PullManyStream (Empty) returns (stream Event) {}
+}
+
+message Empty {
+}
+
+message Message {
+     string user = 1;
+     string content = 2;
+     string id = 3;
+}
+
+message Event {
+    bytes data = 1;
+    string type = 2;
+    string id = 3;
+}
+
+message SingleEvent {
+    Event event = 1;
+}
+
+message ManyEvents {
+    repeated Event events = 1;
+}
+
